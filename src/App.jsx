@@ -1,17 +1,11 @@
-
+import InputForm from './Componenets/UserInput/InputForm';
 
 function App() {
- 
-
-  return (
-    <>
-      <div>
-        <p>My name is Omojide</p>
-      </div>
-     
-      
-    </>
-  )
+	return (
+		<>
+			<InputForm></InputForm>
+		</>
+	);
 }
 
-export default App
+export default App;
