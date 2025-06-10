@@ -1,3 +1,5 @@
+import classes form './InputForm.module.css';
+
 const InputForm = () => {
 	return (
 		<>
