@@ -19,7 +19,7 @@ const InputForm = (props) => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		userInput;
-		// props.onAddinput(userInput);
+		props.onAddinput(userInput);
 		console.log(userInput);
 	};
 
