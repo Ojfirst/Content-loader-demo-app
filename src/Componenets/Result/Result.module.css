@@ -1,3 +1,6 @@
 .ul {
+  max-width: 30rem;
+  text-align: center;
   list-style-type: none;
+  margin: 0 auto;
 }

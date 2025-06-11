@@ -1,22 +1,26 @@
 import React from 'react';
 import classes from './Result.module.css';
+import Card from '../UI/Card';
 
 const Result = (props) => {
 	const listItem = props.processedData
 		? props.processedData.map((item) => (
-				<li key={item.id}>
-					{item.name} ({item.age} years old)
-				</li>
+        <Card>
+					<li key={item.id} className={classes.li}>
+						{item.name} ({item.age} years old)
+					</li>
+        </Card>
+			
 		  ))
 		: null;
 
 	return (
-		<div>
+		
 			<ul className={classes.ul}>
 				{listItem}
 				{!listItem.length && <li>No data available</li>}
 			</ul>
-		</div>
+
 	);
 };
 

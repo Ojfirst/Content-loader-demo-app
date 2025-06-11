@@ -9,6 +9,7 @@ const defaultInput = {
 
 const InputForm = (props) => {
 	const [userInput, setUserInput] = useState(defaultInput);
+  // const [isValid, setIsValid] = useState(true);
 
 	const onChangeHandler = (id, value) => {
 		setUserInput((prev) => {
@@ -18,8 +19,11 @@ const InputForm = (props) => {
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
+
 		userInput;
 		props.onAddinput(userInput);
+
+    setUserInput(defaultInput);
 	};
 
 	return (
@@ -32,6 +36,7 @@ const InputForm = (props) => {
 						type="text"
 						name="user-name"
 						id="name"
+            value={userInput.name}
 						onChange={(e) => onChangeHandler('name', e.target.value)}
 					/>
 				</div>
@@ -41,6 +46,7 @@ const InputForm = (props) => {
 						type="text"
 						name="user-age"
 						id="age"
+            value={userInput.age}
 						onChange={(e) => onChangeHandler('age', e.target.value)}
 					/>
 				</div>

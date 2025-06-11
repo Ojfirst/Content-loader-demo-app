@@ -1,9 +1,9 @@
 .container {
-  width: 50%;
+  max-width: 30rem;
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 2px #ccc;
+  box-shadow: 1px 1px 2px #ccc;
   border-radius: 6px;
   padding: 6px;
-  margin: 20px auto;
-  background: #888;
+  margin: 6px auto;
+  background: #ff9900;
 }
