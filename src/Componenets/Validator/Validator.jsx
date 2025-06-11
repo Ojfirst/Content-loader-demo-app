@@ -1,4 +1,5 @@
 import Card from "../UI/Card";
+import classes from './Validator.module.css';
 
 const Validator = () => {
 	const warning = {
@@ -7,10 +8,10 @@ const Validator = () => {
 	};
 
 	return (
-		<Card>
-			<h3>{warning.title}</h3>
+		<div className={classes.container}>
+			<h3 className={classes.header}>{warning.title}</h3>
 			<p>{warning.message}</p>
-		</Card>
+		</div>
 	);
 };
 

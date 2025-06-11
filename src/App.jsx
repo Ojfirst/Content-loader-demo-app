@@ -17,7 +17,6 @@ const App = () => {
 		<>
 			<InputForm onAddinput={formSubmitHandler}/>
       <Result processedData={formInput}/>
-      <Validator/>
 		</>
 	);
 };

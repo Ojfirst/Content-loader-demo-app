@@ -1,0 +1,19 @@
+.container {
+  margin: 0 auto;
+  max-width: 30rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: all .23s ease-in;
+}
+
+.container .header {
+  padding: 8px;
+  margin: 0px;
+  text-align: center;
+  background: orangered;
+  border-bottom: 1px solid #333;
+}
+
+.container p {
+  text-align: center;
+}
