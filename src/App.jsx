@@ -3,12 +3,12 @@ import InputForm from './Componenets/UserInput/InputForm';
 import Result from './Componenets/Result/Result';
 
 const App = () => {
-  const [formInput, setFormInput] = useState([]);
+  const [formInput, setFormInput] = useState([]); // All all input in an array
   
   const formSubmitHandler = (value) => {
     const userInput ={
       ...value, id: Date.now()}; // Adding current date to the input
-    setFormInput((prevInput)=> [userInput, ...prevInput]);
+    setFormInput((prevInputs)=> [userInput, ...prevInputs]); // Add new input to the array
   };
 
 	return (
