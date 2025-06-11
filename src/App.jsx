@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import InputForm from './Componenets/UserInput/InputForm';
 import Result from './Componenets/Result/Result';
+import Card from './Componenets/UI/Card';
 
 const App = () => {
   const [formInput, setFormInput] = useState([]); // All all input in an array

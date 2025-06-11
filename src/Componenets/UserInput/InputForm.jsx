@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classes from './InputForm.module.css';
+import Card from '../UI/Card';
 
 const defaultInput = {
 	name: '',
@@ -22,8 +23,9 @@ const InputForm = (props) => {
 	};
 
 	return (
-		<>
-			<form action="" className={classes.form} onSubmit={onSubmitHandler}>
+	
+    <Card>
+			<form action="" onSubmit={onSubmitHandler}>
 				<div className={classes['input-container']}>
 					<label htmlFor="user-name">Username</label>
 					<input
@@ -47,7 +49,7 @@ const InputForm = (props) => {
 					<button>Add user</button>
 				</div>
 			</form>
-		</>
+		</Card>
 	);
 };
 
