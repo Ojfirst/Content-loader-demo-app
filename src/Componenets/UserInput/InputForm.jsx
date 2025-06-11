@@ -2,8 +2,8 @@ import { useState } from 'react';
 import classes from './InputForm.module.css';
 
 const defaultInput = {
-	'user-name': '',
-	'user-age': '',
+	name: '',
+	age: '',
 };
 
 const InputForm = (props) => {
@@ -13,14 +13,12 @@ const InputForm = (props) => {
 		setUserInput((prev) => {
 			return { ...prev, [id]: value };
 		});
-    console.log(value);
 	};
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 		userInput;
 		props.onAddinput(userInput);
-		console.log(userInput);
 	};
 
 	return (
@@ -31,8 +29,8 @@ const InputForm = (props) => {
 					<input
 						type="text"
 						name="user-name"
-						id="user-name"
-						onChange={(e) => onChangeHandler('user-name', e.target.value)}
+						id="name"
+						onChange={(e) => onChangeHandler('name', e.target.value)}
 					/>
 				</div>
 				<div className={classes['input-container']}>
@@ -40,8 +38,8 @@ const InputForm = (props) => {
 					<input
 						type="text"
 						name="user-age"
-						id="user-age"
-						onChange={(e) => onChangeHandler('user-age', e.target.value)}
+						id="age"
+						onChange={(e) => onChangeHandler('age', e.target.value)}
 					/>
 				</div>
 

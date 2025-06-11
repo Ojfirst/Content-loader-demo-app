@@ -3,12 +3,13 @@ import InputForm from './Componenets/UserInput/InputForm';
 import Result from './Componenets/Result/Result';
 
 const App = () => {
-  const [formInput, setFormInput] = useState();
+  const [formInput, setFormInput] = useState([]);
+  
   const formSubmitHandler = (value) => {
-    setFormInput(value)
-  }
-
-  console.log('This is from app.jsx',formInput)
+    const userInput ={
+      ...value, id: Date.now()}; // Adding current date to the input
+    setFormInput((prevInput)=> [userInput, ...prevInput]);
+  };
 
 	return (
 		<>
@@ -16,6 +17,6 @@ const App = () => {
       <Result processedData={formInput}/>
 		</>
 	);
-}
+};
 
 export default App;
