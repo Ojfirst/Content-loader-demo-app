@@ -15,11 +15,10 @@ const InputForm = (props) => {
 
 	const onChangeHandler = (id, value) => {
 		if (value.trim().length > 0) {
-			setIsValid(true);
+			setUserInput((prev) => {
+				return { ...prev, [id]: value };
+			});
 		}
-		setUserInput((prev) => {
-			return { ...prev, [id]: value };
-		});
 	};
 
 	const onSubmitHandler = (e) => {
@@ -29,56 +28,64 @@ const InputForm = (props) => {
 			userInput.name.trim().length === 0 ||
 			userInput.age.trim().length === 0
 		) {
-			setIsValid(false);
+			setIsValid({
+				title: 'Invalid input',
+				message: 'Please enter a valid name and age (none-empty values).',
+			});
 			return;
 		}
 
-    if (+userInput.age < 1) {
-      setIsValid(false);
-      return;
-    }
+		if (+userInput.age < 1) {
+			setIsValid({
+				title: 'Invalid age',
+				message: 'Please enter a valid age (greater than 0).',
+			});
+			return;
+		}
 		props.onAddinput(userInput);
 
 		setUserInput(defaultInput); // Reset/Clear input field
 	};
 
-  const onConfirm = () => {
-
-  }
+  // Reset isValid to null to remove warning message
+	const validationHandler = () => {
+    setIsValid(null)
+  };
 
 	return (
-    <div>
-    <Validator title={'An error occure'}  message={'Something went wrong'} />
-		<Card>
-			<form action="" onSubmit={onSubmitHandler}>
-				<div className={classes['input-container']}>
-					<label htmlFor="user-name">Username</label>
-					<input
-						type="text"
-						name="user-name"
-						id="name"
-						value={userInput.name}
-						onChange={(e) => onChangeHandler('name', e.target.value)}
-					/>
-				</div>
-				<div className={classes['input-container']}>
-					<label htmlFor="user-age">Age (years)</label>
-					<input
-						type="number"
-						name="user-age"
-						id="age"
-						value={userInput.age}
-						onChange={(e) => onChangeHandler('age', e.target.value)}
-					/>
-				</div>
-				<Button className={classes.button} type='submit'>Add user</Button>
-				<div></div>
+		<div>
+			{isValid && <Validator title={isValid.title} message={isValid.message} onConfirm={validationHandler} />}
+			<Card>
+				<form action="" onSubmit={onSubmitHandler}>
+					<div className={classes['input-container']}>
+						<label htmlFor="user-name">Username</label>
+						<input
+							type="text"
+							name="user-name"
+							id="name"
+							value={userInput.name}
+							onChange={(e) => onChangeHandler('name', e.target.value)}
+						/>
+					</div>
+					<div className={classes['input-container']}>
+						<label htmlFor="user-age">Age (years)</label>
+						<input
+							type="number"
+							name="user-age"
+							id="age"
+							value={userInput.age}
+							onChange={(e) => onChangeHandler('age', e.target.value)}
+						/>
+					</div>
+					<Button className={classes.button} type="submit">
+						Add user
+					</Button>
+					<div></div>
 
-        <div className={isValid ? classes.overlay : ''}>
-          </div>
-			</form>
-		</Card>
-    </div>
+					<div className={isValid ? classes.overlay : ''}></div>
+				</form>
+			</Card>
+		</div>
 	);
 };
 
