@@ -11,7 +11,7 @@ const defaultInput = {
 
 const InputForm = (props) => {
 	const [userInput, setUserInput] = useState(defaultInput);
-	const [isValid, setIsValid] = useState(true);
+	const [isValid, setIsValid] = useState();
 
 	const onChangeHandler = (id, value) => {
 		if (value.trim().length > 0) {
@@ -42,7 +42,13 @@ const InputForm = (props) => {
 		setUserInput(defaultInput); // Reset/Clear input field
 	};
 
+  const onConfirm = () => {
+
+  }
+
 	return (
+    <div>
+    <Validator title={'An error occure'}  message={'Something went wrong'} />
 		<Card>
 			<form action="" onSubmit={onSubmitHandler}>
 				<div className={classes['input-container']}>
@@ -69,10 +75,10 @@ const InputForm = (props) => {
 				<div></div>
 
         <div className={isValid ? classes.overlay : ''}>
-					<Validator className={classes['overlay-content']}/>
           </div>
 			</form>
 		</Card>
+    </div>
 	);
 };
 

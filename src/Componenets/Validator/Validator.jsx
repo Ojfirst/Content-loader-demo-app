@@ -1,21 +1,28 @@
 import Button from '../UI/Button';
 import classes from './Validator.module.css';
+import Card from '../UI/Card';
 
-const Validator = ({className}) => {
-	const warning = {
-		title: 'Invalid input',
-		message: 'Please enter a valid name and age (none-empty values)',
-	};
-
- 
+const Validator = (props) => {
 
 	return (
-		<div className={`${classes.container} ${className || ''}`}>
-			<h3 className={classes.header}>{warning.title}</h3>
-			<p>{warning.message}</p>
-      <Button className={classes.button}>Okay</Button>
-		</div>
+		<div>
+      <div className={classes.backdrop} onClick={props.onConfirm} />
+      <Card className={classes.modal}>
+        <header className={classes.header}>
+          <h2>{props.title}</h2>
+        </header>
+        <div className={classes.content}>
+          <p>{props.message}</p>
+        </div>
+        <footer className={classes.actions}>
+          <Button className={classes.button} onClick={props.onConfirm}>Okay</Button>
+        </footer>
+      </Card>
+    </div>
 	);
 };
 
 export default Validator;
+
+
+

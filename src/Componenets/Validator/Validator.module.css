@@ -1,28 +1,52 @@
-.container {
-  position: relative;
-  margin: 0 auto;
-  max-width: 30rem;
-  border: 1px solid #333;
-  border-radius: 4px;
-  transition: all .23s ease-in;
-}
-
-.container .header {
-  padding: 8px;
-  margin: 0px;
-  text-align: center;
-  background: orangered;
-  border-bottom: 1px solid #333;
-}
-
-.container p {
-  text-align: left;
-  padding: 1.5rem;
-}
 
 .button {
   background-color: rgb(216, 130, 99);
-  position: absolute;
-  bottom: 4px;
-  right: 6px;
+}
+
+
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.header {
+  background: #a11414;
+  padding: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
 }
