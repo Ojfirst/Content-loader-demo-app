@@ -1,5 +1,6 @@
 import classes from './Button.module.css';
 
+// Utility button
 const Button = (props) => {
 	return (
 		<button

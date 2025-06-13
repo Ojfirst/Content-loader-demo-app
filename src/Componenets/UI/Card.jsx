@@ -1,5 +1,6 @@
 import classes from './Card.module.css';
 
+// Utility Card
 const Card = (props) => {
 	const container = classes.container;
 
