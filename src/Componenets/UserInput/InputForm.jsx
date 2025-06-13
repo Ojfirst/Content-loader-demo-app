@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import classes from './InputForm.module.css';
 import Card from '../UI/Card';
+import Button from '../UI/Button';
+import Validator from '../Validator/Validator';
 
 const defaultInput = {
 	name: '',
@@ -9,9 +11,12 @@ const defaultInput = {
 
 const InputForm = (props) => {
 	const [userInput, setUserInput] = useState(defaultInput);
-  // const [isValid, setIsValid] = useState(true);
+	const [isValid, setIsValid] = useState(true);
 
 	const onChangeHandler = (id, value) => {
+		if (value.trim().length > 0) {
+			setIsValid(true);
+		}
 		setUserInput((prev) => {
 			return { ...prev, [id]: value };
 		});
@@ -20,15 +25,20 @@ const InputForm = (props) => {
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
 
-		userInput;
+		if (
+			userInput.name.trim().length === 0 ||
+			userInput.age.trim().length === 0
+		) {
+			setIsValid(false);
+			return;
+		}
 		props.onAddinput(userInput);
 
-    setUserInput(defaultInput);
+		setUserInput(defaultInput); // Reset/Clear input field
 	};
 
 	return (
-	
-    <Card>
+		<Card>
 			<form action="" onSubmit={onSubmitHandler}>
 				<div className={classes['input-container']}>
 					<label htmlFor="user-name">Username</label>
@@ -36,7 +46,7 @@ const InputForm = (props) => {
 						type="text"
 						name="user-name"
 						id="name"
-            value={userInput.name}
+						value={userInput.name}
 						onChange={(e) => onChangeHandler('name', e.target.value)}
 					/>
 				</div>
@@ -46,14 +56,16 @@ const InputForm = (props) => {
 						type="text"
 						name="user-age"
 						id="age"
-            value={userInput.age}
+						value={userInput.age}
 						onChange={(e) => onChangeHandler('age', e.target.value)}
 					/>
 				</div>
+				<Button>Add user</Button>
+				<div></div>
 
-				<div>
-					<button>Add user</button>
-				</div>
+        <div className={isValid ? classes.overlay : ''}>
+					<Validator className={classes['overlay-content']}/>
+          </div>
 			</form>
 		</Card>
 	);

@@ -3,6 +3,8 @@ import classes from './Result.module.css';
 import Card from '../UI/Card';
 
 const Result = (props) => {
+console.log(props.processedData)
+
 	const listItem = props.processedData
 		? props.processedData.map((item) => (
         <Card>
@@ -13,7 +15,6 @@ const Result = (props) => {
 			
 		  ))
 		: null;
-
 	return (
 		
 			<ul className={classes.ul}>
