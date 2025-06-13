@@ -4,3 +4,9 @@
   list-style-type: none;
   margin: 0 auto;
 }
+
+.ul li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}

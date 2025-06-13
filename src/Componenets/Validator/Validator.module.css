@@ -21,6 +21,7 @@
 }
 
 .button {
+  background-color: rgb(216, 130, 99);
   position: absolute;
   bottom: 4px;
   right: 6px;

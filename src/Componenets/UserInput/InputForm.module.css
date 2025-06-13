@@ -34,3 +34,8 @@
     text-align: left;
     position: relative;
 }
+
+.button {
+  background-color: #f58b8b;
+  color: #111;
+}

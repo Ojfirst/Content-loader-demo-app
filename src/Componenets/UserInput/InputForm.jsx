@@ -32,6 +32,11 @@ const InputForm = (props) => {
 			setIsValid(false);
 			return;
 		}
+
+    if (+userInput.age < 1) {
+      setIsValid(false);
+      return;
+    }
 		props.onAddinput(userInput);
 
 		setUserInput(defaultInput); // Reset/Clear input field
@@ -53,14 +58,14 @@ const InputForm = (props) => {
 				<div className={classes['input-container']}>
 					<label htmlFor="user-age">Age (years)</label>
 					<input
-						type="text"
+						type="number"
 						name="user-age"
 						id="age"
 						value={userInput.age}
 						onChange={(e) => onChangeHandler('age', e.target.value)}
 					/>
 				</div>
-				<Button>Add user</Button>
+				<Button className={classes.button} type='submit'>Add user</Button>
 				<div></div>
 
         <div className={isValid ? classes.overlay : ''}>

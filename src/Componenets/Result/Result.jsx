@@ -3,26 +3,19 @@ import classes from './Result.module.css';
 import Card from '../UI/Card';
 
 const Result = (props) => {
-console.log(props.processedData)
+  const { processedData } = props;
 
-	const listItem = props.processedData
-		? props.processedData.map((item) => (
-        <Card>
-					<li key={item.id} className={classes.li}>
-						{item.name} ({item.age} years old)
-					</li>
-        </Card>
-			
-		  ))
-		: null;
-	return (
-		
-			<ul className={classes.ul}>
-				{listItem}
-				{!listItem.length && <li>No data available</li>}
-			</ul>
-
-	);
+  return (
+    <Card className={classes.result}>
+      <ul className={classes.ul}>
+        {processedData.map((data) => (
+          <li key={data.id} className={classes.item}>
+            {data.name} ({data.age} years old)
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
 };
 
 export default Result;
